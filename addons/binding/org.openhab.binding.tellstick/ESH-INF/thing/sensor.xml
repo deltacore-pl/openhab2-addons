@@ -16,6 +16,7 @@
             <channel id="humidity" typeId="humidity" />
             <channel id="timestamp" typeId="timestamp" />
             <channel id="temperature" typeId="temperature" />
+            <channel id="lux" typeId="lux" />
         </channels>
         <config-description-ref uri="thing-type:tellstick:sensor-config"/>
     </thing-type>
@@ -31,6 +32,20 @@
             <channel id="timestamp" typeId="timestamp" />
             <channel id="rainrate" typeId="rainrate" />
             <channel id="raintotal" typeId="raintotal" />
+        </channels>
+        <config-description-ref uri="thing-type:tellstick:sensor-config"/>
+    </thing-type>
+    <thing-type id="powersensor">
+        <supported-bridge-type-refs>
+            <bridge-type-ref id="telldus-live" />
+        </supported-bridge-type-refs>
+
+        <label>PowerSensor</label>
+        <description>This Thing defines a Power Sensor</description>
+        <channels>
+            <channel id="timestamp" typeId="timestamp" />
+            <channel id="watt" typeId="watt" />
+            <channel id="ampere" typeId="ampere" />
         </channels>
         <config-description-ref uri="thing-type:tellstick:sensor-config"/>
     </thing-type>
@@ -91,6 +106,27 @@
         </state>
     </channel-type>
     
+    <channel-type id="watt">
+        <item-type>Number</item-type>
+        <label>Watt</label>
+        <description>Current kWatt</description>
+        <state pattern="%d" readOnly="true">
+        </state>
+    </channel-type>  
+    <channel-type id="lux">
+        <item-type>Number</item-type>
+        <label>Lux</label>
+        <description>Current lumination</description>
+        <state pattern="%d" readOnly="true">
+        </state>
+    </channel-type>       
+    <channel-type id="ampere">
+        <item-type>Number</item-type>
+        <label>Ampere</label>
+        <description>Current ampere</description>
+        <state pattern="%d" readOnly="true">
+        </state>
+    </channel-type>
     <channel-type id="windaverage">
         <item-type>Number</item-type>
         <label>Wind Average</label>
